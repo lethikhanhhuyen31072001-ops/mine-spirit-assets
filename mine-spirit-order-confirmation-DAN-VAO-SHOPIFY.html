@@ -1,0 +1,203 @@
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:24px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<tr><td align="center">
+
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+
+    <!-- ===== HEADER ===== -->
+    <tr>
+      <td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;">
+        <!-- THAY DAN_LINK_LOGO_VAO_DAY bang URL logo sau khi upload len Shopify > Settings > Files -->
+        <img src="DAN_LINK_LOGO_VAO_DAY" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;">
+      </td>
+    </tr>
+    <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+
+    <!-- ===== GREETING ===== -->
+    <tr>
+      <td style="padding:34px 32px 8px 32px;">
+        <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">
+          Thank you{% if customer.first_name %}, {{ customer.first_name }}{% endif %}.
+        </div>
+        <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+          Your order is confirmed. We're preparing it with care and will email you a tracking number the moment it ships.
+        </div>
+      </td>
+    </tr>
+
+    <!-- ===== ORDER META ===== -->
+    <tr>
+      <td style="padding:22px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E8E3DA;border-bottom:1px solid #E8E3DA;">
+          <tr>
+            <td style="padding:16px 0;font-size:14px;color:#5A5470;">Order number</td>
+            <td align="right" style="padding:16px 0;font-size:14px;color:#2B2440;font-weight:600;">{{ order_name }}</td>
+          </tr>
+          <tr>
+            <td style="padding:0 0 16px 0;font-size:14px;color:#5A5470;">Order date</td>
+            <td align="right" style="padding:0 0 16px 0;font-size:14px;color:#2B2440;font-weight:600;">{{ created_at | date: "%B %d, %Y" }}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== WHAT HAPPENS NEXT ===== -->
+    <tr>
+      <td style="padding:26px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+          <tr>
+            <td style="padding:22px 22px 6px 22px;font-size:15px;color:#2B2440;font-weight:600;letter-spacing:0.3px;">
+              What happens next
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 22px 4px 22px;font-size:15px;line-height:26px;color:#4A4460;">
+              <strong style="color:#4A3B6B;">1.</strong>&nbsp; We prepare your order &mdash; <strong>1&ndash;3 business days</strong><br>
+              <strong style="color:#4A3B6B;">2.</strong>&nbsp; You receive a tracking number by email<br>
+              <strong style="color:#4A3B6B;">3.</strong>&nbsp; Delivery &mdash; <strong>15&ndash;25 business days</strong> from your order date
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:14px 22px 22px 22px;font-size:13px;line-height:21px;color:#6B6584;">
+              Your pieces ship from our overseas atelier, which is why delivery takes a little longer than a domestic order. Tracking may pause for a few days mid-journey &mdash; that is normal and does not mean your parcel is lost.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== ITEMS ===== -->
+    <tr>
+      <td style="padding:30px 32px 0 32px;">
+        <div style="font-size:15px;color:#2B2440;font-weight:600;padding-bottom:14px;">Your order</div>
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          {% for line in line_items %}
+          <tr>
+            <td width="64" style="padding:12px 0;vertical-align:top;">
+              {% if line.image %}
+                <img src="{{ line | img_url: 'compact' }}" alt="{{ line.title | escape }}" width="56" style="width:56px;border-radius:8px;display:block;">
+              {% else %}
+                <div style="width:56px;height:56px;background-color:#EFEAF7;border-radius:8px;"></div>
+              {% endif %}
+            </td>
+            <td style="padding:12px 0 12px 14px;vertical-align:top;font-size:14px;line-height:22px;color:#2B2440;">
+              {{ line.title }}<br>
+              {% if line.variant.title != 'Default Title' %}<span style="color:#6B6584;font-size:13px;">{{ line.variant.title }}<br></span>{% endif %}
+              <span style="color:#6B6584;font-size:13px;">Qty {{ line.quantity }}</span>
+            </td>
+            <td align="right" style="padding:12px 0;vertical-align:top;font-size:14px;color:#2B2440;">{{ line.final_line_price | money }}</td>
+          </tr>
+          {% unless forloop.last %}
+          <tr><td colspan="3" style="border-top:1px solid #F0ECE5;font-size:0;line-height:0;">&nbsp;</td></tr>
+          {% endunless %}
+          {% endfor %}
+        </table>
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E8E3DA;margin-top:8px;">
+          <tr>
+            <td style="padding:14px 0 4px 0;font-size:14px;color:#5A5470;">Subtotal</td>
+            <td align="right" style="padding:14px 0 4px 0;font-size:14px;color:#2B2440;">{{ subtotal_price | money }}</td>
+          </tr>
+          {% if discounts %}
+          <tr>
+            <td style="padding:0 0 4px 0;font-size:14px;color:#5A5470;">Discount</td>
+            <td align="right" style="padding:0 0 4px 0;font-size:14px;color:#2B2440;">&minus;{{ total_discounts | money }}</td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td style="padding:0 0 4px 0;font-size:14px;color:#5A5470;">Shipping</td>
+            <td align="right" style="padding:0 0 4px 0;font-size:14px;color:#2B2440;">{{ shipping_price | money }}</td>
+          </tr>
+          {% if tax_price > 0 %}
+          <tr>
+            <td style="padding:0 0 4px 0;font-size:14px;color:#5A5470;">Tax</td>
+            <td align="right" style="padding:0 0 4px 0;font-size:14px;color:#2B2440;">{{ tax_price | money }}</td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td style="padding:8px 0 0 0;font-size:16px;color:#2B2440;font-weight:600;border-top:1px solid #F0ECE5;">Total</td>
+            <td align="right" style="padding:8px 0 0 0;font-size:16px;color:#2B2440;font-weight:600;border-top:1px solid #F0ECE5;">{{ total_price | money }}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== BUTTON ===== -->
+    <tr>
+      <td align="center" style="padding:30px 32px 0 32px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td align="center" bgcolor="#4A3B6B" style="border-radius:8px;">
+              <a href="{{ order_status_url }}" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">View your order</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== SHIPPING ADDRESS + EDIT WINDOW ===== -->
+    {% if requires_shipping and shipping_address %}
+    <tr>
+      <td style="padding:32px 32px 0 32px;">
+        <div style="font-size:15px;color:#2B2440;font-weight:600;padding-bottom:10px;">Shipping to</div>
+        <div style="font-size:14px;line-height:23px;color:#4A4460;">
+          {{ shipping_address | format_address }}
+        </div>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;background-color:#FFF8E8;border-radius:8px;">
+          <tr>
+            <td style="padding:16px 18px;font-size:13px;line-height:21px;color:#6B5A2E;">
+              <strong>Need to change something?</strong> Reply to this email within <strong>12 hours</strong> and we'll update your address or cancel the order. After that your order enters preparation and we may not be able to make changes.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    {% endif %}
+
+    <!-- ===== BILLING DESCRIPTOR ===== -->
+    <tr>
+      <td style="padding:20px 32px 0 32px;">
+        <div style="font-size:13px;line-height:21px;color:#6B6584;background-color:#F6F4F0;border-radius:8px;padding:14px 18px;">
+          On your bank or card statement this purchase appears as <strong style="color:#2B2440;">MINESPIRIT.COM</strong>.
+        </div>
+      </td>
+    </tr>
+
+    <!-- ===== HELP ===== -->
+    <tr>
+      <td style="padding:28px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E8E3DA;">
+          <tr>
+            <td style="padding:22px 0 0 0;font-size:14px;line-height:23px;color:#4A4460;">
+              <strong style="color:#2B2440;">Questions about your order?</strong><br>
+              Just reply to this email, or write to
+              <a href="mailto:support@minespirit.com" style="color:#4A3B6B;text-decoration:underline;">support@minespirit.com</a>.
+              A real person answers, usually within a few hours.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== FOOTER ===== -->
+    <tr>
+      <td align="center" style="padding:30px 32px 34px 32px;">
+        <div style="font-size:12px;line-height:20px;color:#8A849C;">
+          {{ shop.name }}<br>
+          [Địa chỉ doanh nghiệp đầy đủ]<br><br>
+          <a href="{{ shop.url }}/policies/shipping-policy" style="color:#8A849C;text-decoration:underline;">Shipping Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="{{ shop.url }}/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="{{ shop.url }}/pages/contact" style="color:#8A849C;text-decoration:underline;">Contact</a>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+
+</td></tr>
+</table>

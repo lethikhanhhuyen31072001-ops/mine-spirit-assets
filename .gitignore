@@ -1,0 +1,15 @@
+# Tài liệu quy trình CSKH nội bộ — KHÔNG đẩy lên repo public.
+# Bản đang dùng nằm trên Lark; file Excel ở đây chỉ là bản export để đọc offline.
+*.xlsx
+
+# Cấu hình Claude Code cục bộ (chỉ có ý nghĩa trên máy này)
+.claude/settings.local.json
+
+# File tạm của Office khi đang mở
+~$*
+*.tmp
+
+# Rác hệ điều hành
+Thumbs.db
+desktop.ini
+.DS_Store
