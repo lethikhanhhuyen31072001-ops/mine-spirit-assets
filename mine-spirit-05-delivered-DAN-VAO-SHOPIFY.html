@@ -1,0 +1,138 @@
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:24px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<tr><td align="center">
+
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+
+    <!-- ===== HEADER ===== -->
+    <tr>
+      <td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;">
+        <img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;">
+      </td>
+    </tr>
+    <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+
+    <!-- ===== GREETING ===== -->
+    <tr>
+      <td style="padding:34px 32px 8px 32px;">
+        <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">
+          Your parcel has arrived{% if customer.first_name %}, {{ customer.first_name }}{% endif %}.
+        </div>
+        <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+          The carrier has marked order {{ order_name }} as delivered. We would love a quick word from you to confirm it reached you safely.
+        </div>
+      </td>
+    </tr>
+
+    <!-- ===== CONFIRM BUTTON ===== -->
+    <tr>
+      <td align="center" style="padding:26px 32px 0 32px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td align="center" bgcolor="#4A3B6B" style="border-radius:8px;">
+              <a href="mailto:support@minespirit.com?subject=Received%20{{ order_name }}" style="display:inline-block;padding:15px 38px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Yes, I received it</a>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:13px;line-height:20px;color:#8A849C;padding-top:12px;">
+          One tap sends us a note &mdash; no form to fill in.
+        </div>
+      </td>
+    </tr>
+
+    <!-- ===== IF NOT RECEIVED ===== -->
+    <tr>
+      <td style="padding:28px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+          <tr>
+            <td style="padding:22px 22px 8px 22px;font-size:15px;color:#2B2440;font-weight:600;">
+              Can't find it? Try these four places first
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 22px 6px 22px;font-size:15px;line-height:27px;color:#4A4460;">
+              <strong style="color:#4A3B6B;">1.</strong>&nbsp; Your mailbox<br>
+              <strong style="color:#4A3B6B;">2.</strong>&nbsp; Front porch, doorstep, or side entrance<br>
+              <strong style="color:#4A3B6B;">3.</strong>&nbsp; With a neighbour who may have taken it in<br>
+              <strong style="color:#4A3B6B;">4.</strong>&nbsp; Your building reception, mailroom, or leasing office
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 22px 22px 22px;font-size:14px;line-height:23px;color:#4A4460;">
+              Still nothing? <strong>Reply to this email</strong> and we will start looking into it with the carrier the same business day. Please come to us first &mdash; we can act much faster than a bank dispute, and we will make it right.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== ORDER REFERENCE ===== -->
+    <tr>
+      <td style="padding:28px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E8E3DA;border-bottom:1px solid #E8E3DA;">
+          <tr>
+            <td style="padding:16px 0;font-size:14px;color:#5A5470;">Order</td>
+            <td align="right" style="padding:16px 0;font-size:14px;color:#2B2440;font-weight:600;">{{ order_name }}</td>
+          </tr>
+          {% if fulfillment.tracking_number %}
+          <tr>
+            <td style="padding:0 0 16px 0;font-size:14px;color:#5A5470;">Tracking</td>
+            <td align="right" style="padding:0 0 16px 0;font-size:14px;color:#2B2440;font-weight:600;word-break:break-all;">{{ fulfillment.tracking_number }}</td>
+          </tr>
+          {% endif %}
+          {% if requires_shipping and shipping_address %}
+          <tr>
+            <td style="padding:0 0 16px 0;font-size:14px;color:#5A5470;vertical-align:top;">Delivered to</td>
+            <td align="right" style="padding:0 0 16px 0;font-size:14px;line-height:22px;color:#2B2440;">{{ shipping_address | format_address }}</td>
+          </tr>
+          {% endif %}
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== CARE NOTE ===== -->
+    <tr>
+      <td style="padding:26px 32px 0 32px;">
+        <div style="font-size:14px;line-height:23px;color:#4A4460;">
+          <strong style="color:#2B2440;">A small ritual to begin with</strong><br>
+          Rinse your piece under cool water, hold it for a moment, and set one clear intention. Many of our customers keep theirs somewhere they will see it every morning.
+        </div>
+      </td>
+    </tr>
+
+    <!-- ===== HELP ===== -->
+    <tr>
+      <td style="padding:26px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E8E3DA;">
+          <tr>
+            <td style="padding:22px 0 0 0;font-size:14px;line-height:23px;color:#4A4460;">
+              Anything at all &mdash; damage, a missing piece, or just a question &mdash; write to
+              <a href="mailto:support@minespirit.com" style="color:#4A3B6B;text-decoration:underline;">support@minespirit.com</a>.
+              A real person reads every email.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== FOOTER ===== -->
+    <tr>
+      <td align="center" style="padding:30px 32px 34px 32px;">
+        <div style="font-size:12px;line-height:20px;color:#8A849C;">
+          {{ shop.name }}<br>
+          [Địa chỉ doanh nghiệp đầy đủ]<br><br>
+          <a href="{{ shop.url }}/policies/shipping-policy" style="color:#8A849C;text-decoration:underline;">Shipping Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="{{ shop.url }}/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="{{ shop.url }}/pages/contact" style="color:#8A849C;text-decoration:underline;">Contact</a>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+
+</td></tr>
+</table>

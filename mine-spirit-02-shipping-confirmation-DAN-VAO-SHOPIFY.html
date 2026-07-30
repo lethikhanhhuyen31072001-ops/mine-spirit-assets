@@ -1,0 +1,166 @@
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:24px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+<tr><td align="center">
+
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+
+    <!-- ===== HEADER ===== -->
+    <tr>
+      <td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;">
+        <img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;">
+      </td>
+    </tr>
+    <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+
+    <!-- ===== GREETING ===== -->
+    <tr>
+      <td style="padding:34px 32px 8px 32px;">
+        <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">
+          It's on the way{% if customer.first_name %}, {{ customer.first_name }}{% endif %}.
+        </div>
+        <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+          Your order {{ order_name }} has left our fulfillment center. Here is everything you need to follow it.
+        </div>
+      </td>
+    </tr>
+
+    <!-- ===== TRACKING BOX ===== -->
+    <tr>
+      <td style="padding:26px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+          <tr>
+            <td align="center" style="padding:24px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">
+              Tracking number
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:0 22px 4px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:0.5px;word-break:break-all;">
+              {% if fulfillment.tracking_number %}{{ fulfillment.tracking_number }}{% else %}Will be added shortly{% endif %}
+            </td>
+          </tr>
+          {% if fulfillment.tracking_company %}
+          <tr>
+            <td align="center" style="padding:0 22px 18px 22px;font-size:13px;color:#6B6584;">
+              Carrier: {{ fulfillment.tracking_company }}
+            </td>
+          </tr>
+          {% endif %}
+          {% if fulfillment.tracking_url %}
+          <tr>
+            <td align="center" style="padding:0 22px 24px 22px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" bgcolor="#4A3B6B" style="border-radius:8px;">
+                    <a href="{{ fulfillment.tracking_url }}" style="display:inline-block;padding:14px 36px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Track your order</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {% endif %}
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== WHAT TO EXPECT ===== -->
+    <tr>
+      <td style="padding:26px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFF8E8;border-radius:10px;">
+          <tr>
+            <td style="padding:20px 22px 6px 22px;font-size:15px;color:#6B5A2E;font-weight:600;">
+              Two things worth knowing
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 22px 20px 22px;font-size:14px;line-height:23px;color:#6B5A2E;">
+              &bull;&nbsp; Tracking can take <strong>24&ndash;48 hours</strong> to become active. If the link looks empty right now, please check again tomorrow.<br><br>
+              &bull;&nbsp; Delivery takes <strong>15&ndash;25 business days</strong>. Your parcel travels a long way, so tracking may pause for several days mid-journey. That is normal and does not mean it is lost.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== ITEMS ===== -->
+    <tr>
+      <td style="padding:30px 32px 0 32px;">
+        <div style="font-size:15px;color:#2B2440;font-weight:600;padding-bottom:14px;">In this shipment</div>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          {% for line in fulfillment.line_items %}
+          <tr>
+            <td width="64" style="padding:12px 0;vertical-align:top;">
+              {% if line.image %}
+                <img src="{{ line | img_url: 'compact' }}" alt="{{ line.title | escape }}" width="56" style="width:56px;border-radius:8px;display:block;">
+              {% else %}
+                <div style="width:56px;height:56px;background-color:#EFEAF7;border-radius:8px;"></div>
+              {% endif %}
+            </td>
+            <td style="padding:12px 0 12px 14px;vertical-align:top;font-size:14px;line-height:22px;color:#2B2440;">
+              {{ line.title }}<br>
+              {% if line.variant.title != 'Default Title' %}<span style="color:#6B6584;font-size:13px;">{{ line.variant.title }}<br></span>{% endif %}
+              <span style="color:#6B6584;font-size:13px;">Qty {{ line.quantity }}</span>
+            </td>
+          </tr>
+          {% unless forloop.last %}
+          <tr><td colspan="2" style="border-top:1px solid #F0ECE5;font-size:0;line-height:0;">&nbsp;</td></tr>
+          {% endunless %}
+          {% endfor %}
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== SHIPPING ADDRESS ===== -->
+    {% if requires_shipping and shipping_address %}
+    <tr>
+      <td style="padding:28px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E8E3DA;">
+          <tr>
+            <td style="padding:22px 0 0 0;">
+              <div style="font-size:15px;color:#2B2440;font-weight:600;padding-bottom:10px;">Delivering to</div>
+              <div style="font-size:14px;line-height:23px;color:#4A4460;">
+                {{ shipping_address | format_address }}
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    {% endif %}
+
+    <!-- ===== HELP ===== -->
+    <tr>
+      <td style="padding:26px 32px 0 32px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E8E3DA;">
+          <tr>
+            <td style="padding:22px 0 0 0;font-size:14px;line-height:23px;color:#4A4460;">
+              <strong style="color:#2B2440;">Something looks wrong?</strong><br>
+              Reply to this email or write to
+              <a href="mailto:support@minespirit.com" style="color:#4A3B6B;text-decoration:underline;">support@minespirit.com</a>
+              with your order number. We answer every message &mdash; please reach out to us before anything else, we would much rather fix it for you directly.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- ===== FOOTER ===== -->
+    <tr>
+      <td align="center" style="padding:30px 32px 34px 32px;">
+        <div style="font-size:12px;line-height:20px;color:#8A849C;">
+          {{ shop.name }}<br>
+          [Địa chỉ doanh nghiệp đầy đủ]<br><br>
+          <a href="{{ shop.url }}/policies/shipping-policy" style="color:#8A849C;text-decoration:underline;">Shipping Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="{{ shop.url }}/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="{{ shop.url }}/pages/contact" style="color:#8A849C;text-decoration:underline;">Contact</a>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+
+</td></tr>
+</table>
