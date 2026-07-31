@@ -1,0 +1,343 @@
+<!--
+  ══════════════════════════════════════════════════════════════
+  MINE SPIRIT — LUỒNG BÁM ĐUỔI "ADD TO CART ABANDONMENT"
+  Dựng theo đúng sơ đồ: 10 mail viết mới + 3 mail lặp lại = 13 lượt gửi.
+
+  LỊCH GỬI
+    M1   +1 giờ     Nhắc bỏ quên giỏ + mã 10%
+    M2   +5 giờ     Nhắc hoàn thành đơn + mã 10%
+    M3   +5 phút    Đồng cảm phân vân + lợi ích + mã 35%
+    M4   +10 giờ    Nhắc lại mã + đào sâu công dụng
+    M5   +2 ngày    Ưu đãi sắp hết + xin feedback
+    ── +12 ngày ── LẶP LẠI M1, M2, M3 (dùng lại template, không viết mới)
+    M6   +1 ngày    Sản phẩm sắp hết hàng
+    M7   +2 giờ     Hé lộ món trong hộp bí ẩn
+    M8   +1 ngày    Mã hiếm 50%
+    M9   +1 ngày    Chỉ còn 24 giờ
+    M10  +1,5 ngày  Mã 10%
+
+  ĐIỀU KIỆN BẮT BUỘC TRONG KLAVIYO
+    - Thoát luồng ngay khi khách đặt hàng
+    - Loại trừ khách đang có ticket hỗ trợ hoặc đang có dispute
+    - Bật Smart Sending
+
+  Mỗi mail nằm giữa "BẮT ĐẦU Mx" và "HẾT Mx". Phần nền xám là vạch ngăn, ĐỪNG COPY.
+  ══════════════════════════════════════════════════════════════
+-->
+<meta name="color-scheme" content="light">
+<title>Mine Spirit — luồng bám đuổi Add to Cart</title>
+
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:22px 16px;text-align:center;">
+  <div style="font-size:18px;font-weight:600;color:#2B2440;">Luồng bám đuổi &mdash; Add to Cart Abandonment</div>
+  <div style="font-size:13px;color:#5A5470;padding-top:6px;">10 mail viết mới &middot; 13 lượt gửi &middot; trải 21 ngày</div>
+</div>
+
+<!-- ══════ M1 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M1 &mdash; sau 1 giờ</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>You left something behind</em> &nbsp;·&nbsp; mã 10%</div>
+</div>
+<!-- ═══ BẮT ĐẦU M1 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td align="center" style="padding:16px 24px 14px 24px;border-bottom:1px solid #EFEAE2;">
+    <a href="https://minespirit.com/collections/all" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Shop all</a>
+    <a href="https://minespirit.com/collections/crystals" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Crystals</a>
+    <a href="https://minespirit.com/collections/jewelry" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Jewelry</a>
+    <a href="https://minespirit.com/collections/subscription" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Subscription</a></td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">You left something behind</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">Your cart is still here, exactly as you left it. Nothing has been given away.</div></td></tr>
+  <!-- Thay khối dưới bằng khối giỏ hàng động có sẵn của Klaviyo -->
+  <tr><td style="padding:26px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr>
+      <td width="140" valign="top" style="padding:20px 0 20px 20px;"><img src="{{ event.ImageURL }}" alt="{{ event.ProductName }}" width="120" style="width:120px;border-radius:10px;display:block;"></td>
+      <td valign="middle" style="padding:20px 20px 20px 16px;">
+        <div style="font-size:16px;line-height:23px;color:#2B2440;font-weight:600;">{{ event.ProductName }}</div>
+        <div style="font-size:15px;color:#5A5470;padding-top:6px;">{{ event.Price }}</div></td></tr></table></td></tr>
+  <tr><td style="padding:22px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:22px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">10% off, on us</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:2px;">SPIRIT10</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Return to my cart</a></td></tr></table></td></tr>
+  <tr><td style="padding:28px 32px 0 32px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #EFEAE2;border-bottom:1px solid #EFEAE2;"><tr>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">Free shipping<br>over $60</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;border-left:1px solid #EFEAE2;border-right:1px solid #EFEAE2;">30-day<br>guarantee</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">A real person<br>answers</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:26px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/shipping-policy" style="color:#8A849C;text-decoration:underline;">Shipping Policy</a> &middot; <a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a> &middot; <a href="https://minespirit.com/pages/contact" style="color:#8A849C;text-decoration:underline;">Contact</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M1 ═══ -->
+
+
+<!-- ══════ M2 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M2 &mdash; sau 5 giờ</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>Did you forget it?</em> &nbsp;·&nbsp; nhắc lại mã 10%, gọn hơn M1</div>
+</div>
+<!-- ═══ BẮT ĐẦU M2 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">Did you forget it?</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">Your cart is still open. Checkout takes about a minute, and your 10% code is still good.<br><br>If something stopped you &mdash; shipping time, sizing, a question about the stone &mdash; just reply. We answer fast.</div></td></tr>
+  <tr><td style="padding:24px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:22px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">Your code</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:2px;">SPIRIT10</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Complete my order</a></td></tr></table></td></tr>
+  <tr><td align="center" style="padding:30px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/shipping-policy" style="color:#8A849C;text-decoration:underline;">Shipping Policy</a> &middot; <a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M2 ═══ -->
+
+
+<!-- ══════ M3 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M3 &mdash; sau 5 phút</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>It is okay to take your time</em> &nbsp;·&nbsp; đồng cảm + lợi ích + mã 35%</div>
+</div>
+<!-- ═══ BẮT ĐẦU M3 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">It is okay to take your time</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+      Hesitating is not a bad sign. It usually means the thing matters to you.<br><br>
+      Here is what people tell us afterwards. They did not buy a stone. They bought a small daily reminder &mdash; something to hold in the morning, something on the desk during a hard week, something that says <em>I am paying attention to myself again.</em><br><br>
+      That is what is sitting in your cart.
+    </div></td></tr>
+  <tr><td style="padding:26px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:22px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">A bigger one, just this once</td></tr>
+      <tr><td align="center" style="padding:0 22px 6px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:2px;">SOUL35</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:13px;color:#6B6584;">35% off &mdash; replaces your 10% code</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Use my 35% off</a></td></tr></table></td></tr>
+  <tr><td style="padding:30px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:24px 26px 8px 26px;font-size:16px;letter-spacing:3px;color:#C6A15B;">&#9733;&#9733;&#9733;&#9733;&#9733;</td></tr>
+      <tr><td align="center" style="padding:0 26px 8px 26px;font-size:15px;line-height:25px;color:#4A4460;font-style:italic;">&ldquo;THAY BẰNG REVIEW THẬT của khách Mine Spirit&rdquo;</td></tr>
+      <tr><td align="center" style="padding:0 26px 24px 26px;font-size:13px;color:#6B6584;">&mdash; Tên khách thật</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:28px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M3 ═══ -->
+
+
+<!-- ══════ M4 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M4 &mdash; sau 10 giờ</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>What your stone is actually for</em> &nbsp;·&nbsp; đào sâu công dụng + nhắc mã 35%</div>
+</div>
+<!-- ═══ BẮT ĐẦU M4 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td align="center" style="padding:16px 24px 14px 24px;border-bottom:1px solid #EFEAE2;">
+    <a href="https://minespirit.com/collections/all" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Shop all</a>
+    <a href="https://minespirit.com/collections/crystals" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Crystals</a>
+    <a href="https://minespirit.com/collections/jewelry" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Jewelry</a>
+    <a href="https://minespirit.com/collections/subscription" style="font-size:13px;color:#5A5470;text-decoration:none;padding:0 10px;">Subscription</a></td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">What your stone is actually for</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+      Nobody needs a crystal the way they need groceries. What people find useful is the ritual attached to it.<br><br>
+      <strong style="color:#2B2440;">Morning.</strong> Hold it for thirty seconds before you touch your phone. Name one thing you want from the day.<br><br>
+      <strong style="color:#2B2440;">Midday.</strong> Keep it where your hand lands when you are stuck. The pause is the point, not the stone.<br><br>
+      <strong style="color:#2B2440;">Evening.</strong> Put it down somewhere visible. Tomorrow it reminds you that you were here today.<br><br>
+      Simple, and it works because it is small enough to keep doing.
+    </div></td></tr>
+  <tr><td style="padding:26px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:22px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">Still yours</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:2px;">SOUL35</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Return to my cart</a></td></tr></table></td></tr>
+  <tr><td style="padding:28px 32px 0 32px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #EFEAE2;border-bottom:1px solid #EFEAE2;"><tr>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">Free shipping<br>over $60</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;border-left:1px solid #EFEAE2;border-right:1px solid #EFEAE2;">30-day<br>guarantee</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">A real person<br>answers</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:26px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/shipping-policy" style="color:#8A849C;text-decoration:underline;">Shipping Policy</a> &middot; <a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M4 ═══ -->
+
+
+<!-- ══════ M5 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M5 &mdash; sau 2 ngày</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>Your code ends tomorrow &mdash; and one question</em> &nbsp;·&nbsp; nhắc hết hạn + xin feedback</div>
+</div>
+<!-- ═══ BẮT ĐẦU M5 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">Your code ends tomorrow</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">SOUL35 expires in 24 hours. After that your cart stays, but the discount does not.</div></td></tr>
+  <tr><td style="padding:24px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:22px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">Expires in 24 hours</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:2px;">SOUL35</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Use it before it goes</a></td></tr></table></td></tr>
+  <tr><td style="padding:30px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFF8E8;border-radius:10px;">
+      <tr><td style="padding:20px 22px;font-size:14px;line-height:23px;color:#6B5A2E;">
+        <strong>And if you are not going to buy &mdash; that is genuinely fine.</strong><br>
+        Would you tell us why in one line? Price, shipping time, not the right piece, changed your mind. Hit reply. It takes you five seconds and it helps us more than the sale would.
+      </td></tr></table></td></tr>
+  <tr><td align="center" style="padding:28px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M5 ═══ -->
+
+
+<!-- ══════ MỐC LẶP LẠI ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#F5E9C8;padding:26px 16px;text-align:center;border-top:2px solid #C6A15B;border-bottom:2px solid #C6A15B;">
+  <div style="font-size:15px;font-weight:600;color:#6B5A2E;">&#9670;&nbsp; SAU 12 NGÀY &mdash; LẶP LẠI M1, M2, M3 &nbsp;&#9670;</div>
+  <div style="font-size:13px;color:#6B5A2E;padding-top:8px;">Dùng lại đúng 3 template trên, không cần viết mới.<br>Trong Klaviyo: thêm nhánh Time Delay 12 ngày rồi trỏ về lại 3 mail đầu.</div>
+</div>
+
+
+<!-- ══════ M6 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M6 &mdash; sau 1 ngày</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>Almost gone</em> &nbsp;·&nbsp; sản phẩm sắp hết hàng</div>
+</div>
+<!-- ═══ BẮT ĐẦU M6 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">Running low</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+      The piece in your cart is close to selling out this month. We work in small batches because each stone is picked by hand, so when a run ends we wait for the next one.<br><br>
+      Not a scare tactic &mdash; just how it works here. If you want it, now is the easier time.
+    </div></td></tr>
+  <tr><td style="padding:26px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr>
+      <td width="140" valign="top" style="padding:20px 0 20px 20px;"><img src="{{ event.ImageURL }}" alt="{{ event.ProductName }}" width="120" style="width:120px;border-radius:10px;display:block;"></td>
+      <td valign="middle" style="padding:20px 20px 20px 16px;">
+        <div style="font-size:16px;line-height:23px;color:#2B2440;font-weight:600;">{{ event.ProductName }}</div>
+        <div style="font-size:15px;color:#5A5470;padding-top:6px;">{{ event.Price }}</div></td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Secure mine</a></td></tr></table></td></tr>
+  <tr><td style="padding:28px 32px 0 32px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #EFEAE2;border-bottom:1px solid #EFEAE2;"><tr>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">Free shipping<br>over $60</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;border-left:1px solid #EFEAE2;border-right:1px solid #EFEAE2;">30-day<br>guarantee</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">A real person<br>answers</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:26px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M6 ═══ -->
+
+
+<!-- ══════ M7 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#B8862F;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M7 &mdash; sau 2 giờ &middot; ⚠ cần ảnh</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>[Revealed] What is in this month's box</em></div>
+</div>
+<!-- ═══ BẮT ĐẦU M7 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">One thing from this month's box</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+      We do not usually show what is inside. But here is one piece from the box going out on the 7th &mdash; the rest stays a surprise.
+    </div></td></tr>
+  <tr><td style="padding:26px 32px 0 32px;">
+    <img src="DAN_LINK_ANH_HOP_BI_AN" alt="This month's featured piece" width="536" style="width:100%;max-width:536px;border-radius:10px;display:block;"></td></tr>
+  <tr><td style="padding:20px 32px 0 32px;">
+    <div style="font-size:16px;line-height:26px;color:#5A5470;">Every box holds a handful of pieces chosen around one intention. Members tell us the not-knowing is half the pleasure.</div></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/collections/subscription" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">See the box</a></td></tr></table></td></tr>
+  <tr><td align="center" style="padding:30px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M7 ═══ -->
+
+
+<!-- ══════ M8 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M8 &mdash; sau 1 ngày</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>We almost never do this</em> &nbsp;·&nbsp; mã 50%</div>
+</div>
+<!-- ═══ BẮT ĐẦU M8 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">We almost never do this</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+      Fifty percent off is not something we hand out. It comes around once in a while, for people who have been circling a piece for weeks and have not pulled the trigger.<br><br>
+      That is you, so here it is.
+    </div></td></tr>
+  <tr><td style="padding:26px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:24px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">50% off &mdash; rare</td></tr>
+      <tr><td align="center" style="padding:0 22px 6px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:2px;">SPIRIT50</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:13px;color:#6B6584;">Good for 48 hours</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Claim 50% off</a></td></tr></table></td></tr>
+  <tr><td style="padding:30px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:24px 26px 8px 26px;font-size:16px;letter-spacing:3px;color:#C6A15B;">&#9733;&#9733;&#9733;&#9733;&#9733;</td></tr>
+      <tr><td align="center" style="padding:0 26px 8px 26px;font-size:15px;line-height:25px;color:#4A4460;font-style:italic;">&ldquo;THAY BẰNG REVIEW THẬT của khách Mine Spirit&rdquo;</td></tr>
+      <tr><td align="center" style="padding:0 26px 24px 26px;font-size:13px;color:#6B6584;">&mdash; Tên khách thật</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:28px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M8 ═══ -->
+
+
+<!-- ══════ M9 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#4A3B6B;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M9 &mdash; sau 1 ngày</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>Final hours: 50% off</em></div>
+</div>
+<!-- ═══ BẮT ĐẦU M9 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">24 hours left</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">SPIRIT50 stops working tomorrow. We will not be sending it again this season.</div></td></tr>
+  <tr><td style="padding:24px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFF8E8;border-radius:10px;">
+      <tr><td align="center" style="padding:22px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B5A2E;text-transform:uppercase;">Expires in 24 hours</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:22px;line-height:30px;color:#6B5A2E;font-weight:700;letter-spacing:2px;">SPIRIT50</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/cart" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Use it now</a></td></tr></table></td></tr>
+  <tr><td style="padding:28px 32px 0 32px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #EFEAE2;border-bottom:1px solid #EFEAE2;"><tr>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">Free shipping<br>over $60</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;border-left:1px solid #EFEAE2;border-right:1px solid #EFEAE2;">30-day<br>guarantee</td>
+    <td width="33%" align="center" style="padding:18px 6px;font-size:13px;line-height:19px;color:#5A5470;">A real person<br>answers</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:26px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M9 ═══ -->
+
+
+<!-- ══════ M10 ══════ -->
+<div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#E7E2D8;padding:18px 12px 4px 12px;text-align:center;">
+  <div style="display:inline-block;background:#8A2F2F;color:#fff;font-size:13px;font-weight:600;padding:8px 18px;border-radius:20px;">M10 &mdash; sau 1,5 ngày &middot; mail cuối</div>
+  <div style="font-size:12px;color:#5A5470;padding-top:8px;">Tiêu đề: <em>One last code, then we will leave you be</em> &nbsp;·&nbsp; mã 10% theo sơ đồ</div>
+</div>
+<!-- ═══ BẮT ĐẦU M10 ═══ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px 40px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">One last code, then we will leave you be</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">
+      This is the final email in this series. Your cart stays saved either way, and you are welcome back whenever the timing is right.<br><br>
+      Here is a standing 10% if you decide later.
+    </div></td></tr>
+  <tr><td style="padding:26px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;">
+      <tr><td align="center" style="padding:22px 22px 6px 22px;font-size:12px;letter-spacing:1.5px;color:#6B6584;text-transform:uppercase;">Yours, no expiry</td></tr>
+      <tr><td align="center" style="padding:0 22px 22px 22px;font-size:22px;line-height:30px;color:#2B2440;font-weight:700;letter-spacing:2px;">SPIRIT10</td></tr></table></td></tr>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="https://minespirit.com/collections/all" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Browse the collection</a></td></tr></table></td></tr>
+  <tr><td align="center" style="padding:30px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>[Địa chỉ doanh nghiệp đầy đủ]<br><br><a href="https://minespirit.com/policies/shipping-policy" style="color:#8A849C;text-decoration:underline;">Shipping Policy</a> &middot; <a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
+<!-- ═══ HẾT M10 ═══ -->
