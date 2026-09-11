@@ -1,0 +1,44 @@
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F3F0EA;margin:0;padding:20px 12px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"><tr><td align="center">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:100%;background-color:#FFFFFF;border-radius:14px;overflow:hidden;">
+  <tr><td align="center" style="background-color:#120320;padding:26px 24px 22px 24px;"><img src="https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/mine-spirit-assets/main/Logo%20Mine%20Spirit/for-email/minespirit-logo-dark.jpg" alt="Mine Spirit" width="200" style="width:200px;max-width:70%;display:block;border:0;"></td></tr>
+  <tr><td style="background-color:#C6A15B;font-size:0;line-height:0;height:3px;">&nbsp;</td></tr>
+  <tr><td style="padding:34px 32px 0 32px;">
+    <div style="font-size:24px;line-height:32px;color:#2B2440;font-weight:600;">Was it one of these three?</div>
+    <div style="font-size:16px;line-height:26px;color:#5A5470;padding-top:12px;">When someone stops at the payment page, it is nearly always one of three things.</div></td></tr>
+  <tr><td style="padding:20px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr><td style="padding:18px 20px;border-left:3px solid #C6A15B;">
+      <div style="font-size:15px;line-height:22px;color:#2B2440;font-weight:600;"><span style="color:#C6A15B;">&#10022;</span>&nbsp;&nbsp;&ldquo;The total was higher than I expected.&rdquo;</div>
+      <div style="font-size:15px;line-height:24px;color:#5A5470;padding-top:7px;">Shipping is free once your order passes $60. Below that it is calculated at checkout and shown to you before you pay. There is no fee that appears at the last step.</div>
+    </td></tr></table></td></tr>
+  <tr><td style="padding:12px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr><td style="padding:18px 20px;border-left:3px solid #C6A15B;">
+      <div style="font-size:15px;line-height:22px;color:#2B2440;font-weight:600;"><span style="color:#C6A15B;">&#10022;</span>&nbsp;&nbsp;&ldquo;My card was declined.&rdquo;</div>
+      <div style="font-size:15px;line-height:24px;color:#5A5470;padding-top:7px;">It happens, often for reasons that have nothing to do with you &mdash; a bank flagging a new merchant, for instance. Nothing was charged. Try a different card or PayPal, or write to us and we will help.</div>
+    </td></tr></table></td></tr>
+  <tr><td style="padding:12px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr><td style="padding:18px 20px;border-left:3px solid #C6A15B;">
+      <div style="font-size:15px;line-height:22px;color:#2B2440;font-weight:600;"><span style="color:#C6A15B;">&#10022;</span>&nbsp;&nbsp;&ldquo;I got nervous about the wait.&rdquo;</div>
+      <div style="font-size:15px;line-height:24px;color:#5A5470;padding-top:7px;">15 to 25 business days, with tracking from the moment it ships. And 30 days to change your mind once it lands.</div>
+    </td></tr></table></td></tr>
+  <!-- ẢNH GỢI Ý: M2 — ảnh gói hàng đã đóng sẵn kèm nhãn vận chuyển. Cho thấy đơn hàng là có thật và sẵn sàng đi.
+       Bỏ dòng ghi chú này và dòng cuối để bật ảnh lên.
+  <tr><td style="padding:26px 32px 0 32px;">
+    <img src="DAN_LINK_ANH_VAO_DAY" alt="A packed parcel with its shipping label" width="536" style="width:100%;max-width:536px;border-radius:10px;display:block;">
+  </td></tr>
+  -->
+
+  <!-- Khoi san pham dong — doc tu event.extra.line_items (da kiem chung 05/08/2026).
+       Lap qua tung mon trong gio. Anh va chu deu bam duoc, tro ve gio hang cu. -->
+  {% for item in event.extra.line_items %}
+  <tr><td style="padding:26px 32px 0 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr>
+      <td width="140" valign="top" style="padding:20px 0 20px 20px;"><a href="{{ event.extra.checkout_url }}"><img src="{{ item.product.images.0.src }}" alt="{{ item.title }}" width="120" style="width:120px;border-radius:10px;display:block;border:0;"></a></td>
+      <td valign="middle" style="padding:20px 20px 20px 16px;"><a href="{{ event.extra.checkout_url }}" style="text-decoration:none;">
+        <div style="font-size:16px;line-height:23px;color:#2B2440;font-weight:600;">{{ item.title }}</div>
+        <div style="font-size:15px;color:#5A5470;padding-top:6px;">${{ item.price }}{% if item.quantity > 1 %} &times; {{ item.quantity }}{% endif %}</div></a></td></tr></table></td></tr>
+  {% endfor %}
+  <tr><td align="center" style="padding:26px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:15px 40px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">Pick up where I left off</a></td></tr></table></td></tr>
+  <tr><td style="padding:24px 32px 0 32px;">
+    <div style="font-size:14px;line-height:23px;color:#4A4460;text-align:center;">Was it something else entirely? Reply and tell us &mdash; we read every one.</div></td></tr>
+  <tr><td align="center" style="padding:28px 32px 34px 32px;"><div style="font-size:12px;line-height:20px;color:#8A849C;">Mine Spirit<br>1500 N Grant St Ste N, Denver, CO 80203, United States<br><br><a href="https://minespirit.com/policies/refund-policy" style="color:#8A849C;text-decoration:underline;">Refund Policy</a><br><br><a href="{% unsubscribe_link %}" style="color:#8A849C;text-decoration:underline;">Unsubscribe</a></div></td></tr>
+</table></td></tr></table>
