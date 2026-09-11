@@ -80,8 +80,8 @@ Xem truoc 3 mail + ban dich tieng Viet:
       Noi dau:  Ho vua THAY tang yeu nhat + diem so. Khoa lai phan
                 "vi sao no can truoc" -> to mo. Khung "da thay / dang khoa".
                 Thu tuc (chua tru tien, khong lam lai quiz) xuong 1 dong.
-      ⚠ Dong "PayPal and Apple Pay work too" — XAC NHAN hai cach nay
-        dang bat o Shopify checkout truoc khi Live. Neu khong, xoa dong do.
+      Dong "PayPal and Apple Pay work too" — DA XAC NHAN 11/09/2026 tren
+        iPhone: checkout co Shop Pay, PayPal, Apple Pay, Google Pay.
 
   C2  QUIZCHECKOUT-C2.html
       Subject:  How long have you been calling it “just tired”? 🌙
@@ -136,8 +136,8 @@ Xem truoc 3 mail + ban dich tieng Viet:
          Items  doesn't contain  Map & Report + 5 Solutions — The Complete Reading
       DA LAM 11/09/2026. ⚠ Phai la AND — de OR thi bo loc vo dung
       (lan dau user bam nham OR, da sua).
-      ⚠ Luong Checkout cu dang hien DRAFT (11/09/2026, 2:44 PM) — hoi lai
-        user vi sao; ghi chep cu noi luong nay Live tu 05/08.
+      Luong Checkout cu hien DRAFT luc 2:44 PM 11/09/2026 — user da BAT
+        LAI LIVE cung ngay (tat tu luc nao chua ro).
 
   [ ] Luong 6 mail quiz — Profile filter:
          Checkout Started   zero times   since starting this flow
@@ -156,13 +156,13 @@ Xem truoc 3 mail + ban dich tieng Viet:
       Email dien san la du, khach KHONG can bam "Continue" su kien van ban.
   [x] Bung su kien, xem Items — ghi 4 MON CON, khong co ten goi
       => da doi bo loc sang "Your Full Spirit Map" (xem muc 1).
-  [ ] Profile KHONG vao luong Checkout cu — chua kiem duoc (luong cu
-      dang Draft; bo loc AND da dat).
+  [ ] Profile KHONG vao luong Checkout cu — chua kiem duoc (luot thu
+      2:30 PM xay ra luc luong cu dang Draft). Kiem o lan checkout thu sau.
   [x] Gui thu C1 (profile ca nhan) — OK 11/09/2026: 1 the san pham,
       $4.90, anh hien, nut ve dung gio $4.90, footer + Unsubscribe du.
   [x] Gui thu C2, C3 — OK 11/09/2026.
-  [ ] Apple Pay: mo mail thu tren iPhone, bam nut, xem co nut Apple Pay.
-      Khong co => doi dong C1 thanh "PayPal and Google Pay work too".
+  [x] Apple Pay — CO, kiem tren iPhone 11/09/2026 (bam nut mail thu,
+      checkout $4.90 dien san email, hien Apple Pay o ca Express va Payment).
 
 
 ================================================================
@@ -173,8 +173,7 @@ Xem truoc 3 mail + ban dich tieng Viet:
   [x] Ca flow:    Draft -> Live                  — 11/09/2026 ~3:08 PM
       Da kiem tren anh: delay 1h / 19h / 2 ngay, C1 khong co nhan
       Smart sending, C2 + C3 co.
-  [ ] CON TON: dong "PayPal and Apple Pay work too" o C1 chua kiem
-      Apple Pay tren iPhone.
+  [x] Dong "PayPal and Apple Pay work too" o C1 — da kiem, giu nguyen.
 
   Email nao con Draft se bi BO QUA AM THAM.
   Nho quota goi Free (500 luot/thang) dang chung voi 4 luong khac.
