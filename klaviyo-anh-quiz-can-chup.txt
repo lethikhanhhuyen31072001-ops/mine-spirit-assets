@@ -1,0 +1,95 @@
+================================================================
+LUONG QUIZ -> $4.90  ·  ANH CAN CHUP (tuy chon, de nang cap)
+Lap 09/09/2026
+================================================================
+
+TRANG THAI HIEN TAI
+
+  Ca 6 mail DA CHAY DUOC NGAY, khong can anh nao.
+  Hinh trong mail dang dung bang chinh HTML: bang 7 tang khoa,
+  the so 64% / 84-82-72, o gia $4.90 lon.
+
+  Ly do chon HTML thay vi anh chen:
+   · Nhieu hom thu CHAN ANH mac dinh -> anh chen thanh o trong,
+     con hinh HTML thi luon hien
+   · Tep 66 tuoi doc trong app Facebook, mang yeu -> HTML tai tuc thi
+   · Khong phu thuoc vao viec upload anh len GitHub
+
+  Duoi day la anh NEU MUON nang cap them. Khong bat buoc.
+
+
+================================================================
+1. ANH CAN CHUP MOI (2 tam)
+================================================================
+
+  [A] Q2 · To giay tren ban bep
+      Noi dung: mot to giay viet tay + cay but dat tren ban bep,
+                anh den vang buoi toi, khong co mat nguoi
+      Kich thuoc: 1200 x 700 px, cat ngang
+      ⚠ PHAI LA ANH CHUP THAT, khong dung AI.
+        Bai hoc M8 luong cu: mail lap luan ve su that ma dung anh AI
+        thi tu pha lap luan. Chup bang dien thoai la du.
+      Dat o dau: ngay TREN khoi "TONIGHT · TEN MINUTES"
+
+  [B] Q5 · Luoi 4 anh chup man hinh
+      Noi dung: 4 o vuong ghep 2x2, moi o mot anh chup that:
+                 1. Ban doc day du (mot doan bat ky)
+                 2. Spirit Map
+                 3. Man lo trinh 7 ngay
+                 4. Mot video huong dan
+      Kich thuoc: 1200 x 1200 px
+      Dat o dau: thay cho 4 khoi ✦ hien tai, hoac dat ngay tren chung
+
+
+================================================================
+2. ANH CHUP MAN HINH TU BAN DOC (4 tam)
+================================================================
+
+  Lay tu HO SO MAU trong quiz, KHONG lay ban doc cua khach that
+  (ke ca da che ten).
+
+  Cach lay: mo minespirit.com/pages/quiz?demo=margaret
+            -> vao thang man ket qua, khong phai lam lai quiz
+
+  [C] The archetype: "The Heart Keeper" + 4 o chi so
+  [D] Bieu do 7 tang co diem so
+  [E] Man khoa "The rest of your reading"
+  [F] Mot doan Spirit Map
+
+  Dung cho: Q1 (dung [C] hoac [E]) va Q5 (ghep vao luoi [B])
+
+
+================================================================
+3. UPLOAD VA GAN VAO TEMPLATE
+================================================================
+
+  1. Upload vao repo anh dang dung:
+        lethikhanhhuyen31072001-ops/mine-spirit-assets
+        thu muc moi: quiz-emails/
+
+  2. Duong dan anh se co dang:
+        https://raw.githubusercontent.com/lethikhanhhuyen31072001-ops/
+        mine-spirit-assets/main/quiz-emails/<ten-file>.jpg
+
+  3. Chen vao template theo dung mau da dung o luong Welcome:
+        <img src="..." alt="..." width="100%"
+             style="width:100%;border-radius:10px;display:block;border:0;">
+
+  4. ⚠ Anh Shopify duoi .webp phai them ?width=340&format=jpg
+     Anh tren GitHub thi khong can.
+
+  5. Chay lai audit sau khi chen:
+        python ~/.claude/skills/klaviyo-abandonment-flow/scripts/audit_templates.py klaviyo-templates
+
+
+================================================================
+4. KHONG DUNG NHUNG ANH NAY
+================================================================
+
+  ✗ Anh stock phu nu trung nien ngoi thien / uong tra / nhin ra cua so
+    -> sao mon, va pha dung luan diem "ban khong hong" cua Q4
+  ✗ Logo hay huy hieu Harvard / Oxford / Cambridge trong Q3
+    -> trung logo truong la ngu y ho bao tro minh
+  ✗ Anh AI ve da quy hoac phong canh tam linh
+  ✗ Anh chup ban doc cua khach that
+================================================================

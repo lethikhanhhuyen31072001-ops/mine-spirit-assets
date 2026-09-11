@@ -1,0 +1,272 @@
+================================================================
+LUONG QUIZ -> $4.90  ·  BANG DUNG FLOW
+Muc tieu: nguoi da lam quiz, da de lai email, CHUA mua $4.90
+Lap 08/09/2026  ·  NOI DUNG 6 MAIL DA DUYET 11/09/2026  ·  CHUA BAT LIVE
+
+Xem truoc ca 6 mail + ban dich tieng Viet:
+   mine-spirit-XEM-TRUOC-QUIZ.html   (dung lai bang: python klaviyo-quiz-xem-truoc.py)
+================================================================
+
+TRUOC KHI DUNG — HAI VIEC PHAI XONG
+
+  [ ] 1. NOI EMAIL QUIZ VAO KLAVIYO
+         Hien tai quiz-do-duong.js chi POST ve /api/quiz/events.
+         KHONG co dong Klaviyo nao. Klaviyo dang khong co ai de gui.
+         Chon 1 trong 2 duong o cuoi file nay.
+
+  [ ] 2. NANG GOI KLAVIYO
+         Goi Free = 250 profile / 500 luot gui / thang.
+         Da co 4 luong dang chay. Quiz dang thu ~40 email / 4 ngay.
+         6 mail x 40 nguoi = 240 luot cho rieng luong nay.
+         Cham quota thi Klaviyo NUOT MAIL, khong bao loi.
+
+
+================================================================
+1. TRIGGER
+================================================================
+
+  DUONG A (co dev)   Metric: Completed Quiz        <- nen dung
+  DUONG B (khong dev) List:  Quiz - chua mua 4.90  <- lam duoc ngay
+
+  Re-entry:  Allow re-entry after 60 days
+             (khach lam lai quiz sau 2 thang thi duoc vao lai)
+
+
+================================================================
+2. PROFILE FILTER  (Klaviyo goi la Flow filters)
+================================================================
+
+  Dong 1:  Placed Order          zero times   since starting this flow
+  Dong 2:  Viewed Product        zero times   since starting this flow   <- BO neu thay chat
+
+  ⚠ Phai chon "since starting this flow", KHONG chon "over all time".
+    Chon nham "over all time" = loai vinh vien moi khach tung mua.
+
+  ⚠ Neu ban $4.90 KHONG di qua Shopify checkout thi "Placed Order"
+    se khong bao gio ban. Luc do phai doi sang:
+       Dong 1:  <ten metric mua $4.90>  zero times  since starting this flow
+    Kiem tra truoc: mua thu 1 don $4.90, xem Klaviyo ghi metric ten gi.
+
+
+================================================================
+3. LICH GUI
+================================================================
+
+  #   DELAY TRUOC DO   NGAY THU   CACH MAIL TRUOC   SMART SENDING
+  --  ---------------  ---------  ----------------  --------------
+  Q1  1 gio            0,04       -                 giu
+  Q2  20 gio           0,9        19 gio            giu
+  Q3  2 ngay           2,9        48 gio            giu
+  Q4  2 ngay           4,9        48 gio            giu
+  Q5  3 ngay           7,9        72 gio            giu
+  Q6  3 ngay           10,9       72 gio            giu
+
+  ⚠ KHAC 3 luong bam duoi: luong nay KHONG phai tat Smart Sending
+    o mail nao ca — moi khoang cach deu tren 16 gio.
+    Da tinh san, dung tat nham.
+
+  ⚠ Sau khi go delay, DOC LAI chu hien tren o ("Wait 2 days"),
+    dung tin so vua go. Go nham Days/Hours la ca luong don 1 ngay.
+
+
+================================================================
+4. NOI DUNG TUNG MAIL
+================================================================
+
+  Q1  QUIZ-Q1.html
+      Subject:  Your reading is still open 🕯️
+      Preview:  Nothing you entered is lost.
+      Viec:     Mo lai vong lap. Noi ro cai da doc va cai con sau canh cua.
+                Dat GIA ngay trong mail — bao cao cho thay chi 12/39 nguoi
+                tung nhin thay con so $4.90.
+
+  Q2  QUIZ-Q2.html
+      Subject:  Something to try tonight 🌙
+      Preview:  Yours to keep, whatever you decide.
+      Viec:     CHO TRUOC KHI XIN. Tang that mot buoc thuc hanh
+                cho cau dau nhat (Q16 — 64% nguoi gat).
+
+  Q3  QUIZ-Q3.html
+      Subject:  Where this actually comes from 📜
+      Preview:  Not written from your star sign.
+      Viec:     Go phan van "co phai boi toan khong".
+                3 trich dan that + cau "none of them has been paid by us".
+
+  Q4  QUIZ-Q4.html
+      Subject:  You are not broken. You are tired. 🤍
+      Preview:  84 in 100 still trust their own intuition.
+      Viec:     Dinh cam xuc. Dung so THAT tu chinh nguoi lam quiz.
+                Moi, khong phan xet.
+
+  Q5  QUIZ-Q5.html
+      Subject:  Everything behind the door 🔑
+      Preview:  One payment. Nothing renews.
+      Viec:     Liet ke tron goi $4.90 gom nhung gi (dung danh sach tren
+                trang ban that). Nhac nhe bac $19 o cuoi, KHONG co nut rieng.
+
+  Q6  QUIZ-Q6.html
+      Subject:  Ninety seconds, and nothing to buy 🤍
+      Preview:  The last one from us. It is a gift, not an offer.
+      Viec:     THU TANG, KHONG BAN. Tang tron nghi thuc 90 giay (mon co that
+                trong goi $4.90), cam on, roi dung. KHONG co nut mua, KHONG
+                co link nao ngoai Unsubscribe — co chu dich.
+                Do bang: ty le huy dang ky o Q6, KHONG do bang ty le bam
+                (khong co nut nen ty le bam luon = 0, dung doc nham la that bai).
+      ⚠ Nghi thuc trong mail la em tu viet. Neu ban that da co noi dung
+        "first 90-second ritual" thi thay bang ban that.
+      Lich su: da thu va BO 2 phuong an — (1) reply chu "page" de nhan
+        1 trang mien phi: ton cong tra cuu tung khach, de sot; (2) chen ban
+        doc mau Margaret + 3 nut hen lai: khach da thay mau cua chinh ho roi,
+        them mau nguoi la khong co gi moi.
+
+
+================================================================
+5. MA GIAM GIA — CO Y KHONG DUNG
+================================================================
+
+  Ba luong bam duoi dung thang 10% -> 20% -> 35%.
+  Luong nay KHONG dung ma, co chu dich:
+
+  · Giam 35% cua $4.90 = tiet kiem $1,71. Khong ai doi hanh vi vi $1,71.
+  · Bac $4.90 khong phai de kiem tien — de lay the va bien nguoi la
+    thanh nguoi da mua. Ha gia lam hong dung muc dich do.
+  · Day khach quen cho ma giam, se cho ca o buoc $199 phia sau.
+
+  Don bay o day la HA RUI RO + CHO TRUOC, khong phai ha gia.
+  Da cai vao Q2 (tang buoc thuc hanh) va Q3 (cam ket hoan tien).
+
+
+================================================================
+6. BIEN TRONG TEMPLATE
+================================================================
+
+  CHI dung mot the duy nhat:  {% unsubscribe_link %}
+
+  KHONG co bien su kien nao. Ly do: chua lay duoc payload that cua
+  su kien quiz, ma skill quy dinh khong duoc doan ten bien —
+  sai mot bien la phai nap lai ca 6 file.
+
+  Khi nao Duong A xong va co du lieu that, THEM duoc:
+     {{ person.first_name }}          ten
+     {{ event.WeakestTier }}          tang mong nhat  <- manh nhat
+     {{ event.ResumeURL }}            link mo lai ban doc
+
+  Luc do sua QUIZ-Q1/Q2 truoc — hai mail do huong loi nhieu nhat.
+
+
+================================================================
+7. LINK TRONG NUT BAM  ⚠ CHO YEU NHAT CUA LUONG NAY
+================================================================
+
+  Hien Q1-Q5 tro ve:  https://minespirit.com/pages/quiz  (Q6 khong co nut)
+  Moi nut co UTM rieng: utm_campaign=quiz_unlock & utm_content=q1..q5
+
+  VAN DE: link do MO LAI QUIZ TU DAU. Khach 66 tuoi vua tra loi
+  21 cau, bam vao thay phai lam lai => mat luon.
+  Trang thai quiz luu o may khach, ma mail thuong mo o app khac.
+
+  PHAI SUA TRUOC KHI BAT LIVE. Hai cach:
+
+  Cach nhanh (khong dev):
+     Them tren trang quiz mot dong: "Da lam roi? Nhap email de mo lai
+     ban doc cua ban." -> tra ket qua theo email.
+
+  Cach dung (co dev):
+     Sinh link mo lai co token cho tung nguoi, gui kem trong su kien
+     Completed Quiz, roi thay vao 6 nut bang {{ event.ResumeURL }}.
+
+
+================================================================
+8. NOI EMAIL QUIZ VAO KLAVIYO — HAI DUONG
+================================================================
+
+  DUONG B — LAM DUOC NGAY, KHONG CAN DEV
+  ---------------------------------------
+  1. Xuat email tu backend quiz ra CSV
+     (bang quiz_attempt_inputs, loc: co email + chua mua)
+  2. Klaviyo -> Audience -> Lists -> Create List
+     Ten: "Quiz - chua mua 4.90"
+  3. Import CSV vao list do
+  4. Flow trigger = list nay
+  5. ⚠ KHONG bat "Add past profiles" khi chua test xong
+  Nhuoc diem: thu cong, phai lam lai moi tuan.
+  Uu diem: chay duoc trong hom nay, kiem chung noi dung truoc khi viet code.
+
+  DUONG A — DUNG KIEN TRUC, CAN DEV SUA quiz-do-duong.js
+  ------------------------------------------------------
+  Them vao dung buoc khach bam gui email:
+
+     window._learnq = window._learnq || [];
+     _learnq.push(['identify', {
+       '$email'      : email,
+       '$first_name' : firstName
+     }]);
+     _learnq.push(['track', 'Completed Quiz', {
+       WeakestTier : weakestTier,
+       Score       : score,
+       ResumeURL   : resumeUrl
+     }]);
+
+  Sau khi day len, LAM THAT MOT LUOT bang email ca nhan, roi vao
+  Klaviyo -> Profiles -> Activity feed -> bung het cac tang,
+  GHI LAI ten khoa CHINH XAC. Roi moi sua template.
+  (Bai hoc cu: 3 su kien Shopify dung 3 bo khoa khac nhau — doan la sai.)
+
+
+================================================================
+9. TEST TRUOC KHI BAT LIVE
+================================================================
+
+  [ ] Gui thu ve Gmail ca nhan (KHONG gui vao hom support@ — thanh ticket)
+      Chon 3 mail du phu bo cuc: Q1 (bang 7 tang khoa + hang cam ket) ·
+      Q4 (ba the so 84/82/72) · Q6 (khong co nut nao — kiem tra chan mail)
+  [ ] BAM THU NUT trong mail that — khong chi nhin
+  [ ] Chan trang: co dia chi Denver, chu Unsubscribe sach, khong lo ma HTML
+  [ ] Mail vao Inbox chu khong vao Spam
+  [ ] Doi chieu quota con lai truoc khi bat
+
+
+================================================================
+10. BAT LIVE — HAI CONG TAC
+================================================================
+
+  [ ] Tung email:  Draft -> Live   (ca 6)
+  [ ] Ca flow:     Draft -> Live
+
+  Email nao con Draft se bi BO QUA AM THAM. Day la loi pho bien nhat.
+
+
+================================================================
+11. DO SAU 2-3 TUAN
+================================================================
+
+  · Placed Order rate tung mail -> mail nao gan 0 thi cat
+  · Skipped khac 0 -> co mail bi nuot, kiem Smart Sending + profile filter
+  · Muc tieu: ty le "de lai email -> mua $4.90" tu 0% len tren 5%
+    (hien tai 40 email, 0 don)
+
+
+================================================================
+12. NOI DUNG PHAI KHOP SAN PHAM THAT — DOC TRUOC KHI SUA MAIL
+================================================================
+
+  Ban chuan: minespirit.com/pages/quiz  (chi xac nhan 10/09/2026).
+  KHONG phai minespirit-quiz.pages.dev — ban do cu, noi dung goi khac.
+
+  $4.90  MAP & REPORT
+     bau troi that ngay sinh (10 hanh tinh) · 12 the thang 2026-2027 ·
+     10 nam toi 2026-2035 · 6 dieu dang trai qua · 7 tang cham diem ·
+     nghi thuc 90 giay dau tien · lo trinh giai phap 5 buoc
+
+  $19    MAP & REPORT + 5 SOLUTIONS  = tat ca o tren, cong:
+     go tu dau truoc · nhip thuc hanh hang ngay · bo 4 vat pham theo
+     tang yeu nhat · LO TRINH 7 NGAY · bieu do hien tai -> muc tieu
+
+  ⚠ Loi da sua 10/09: mail tung hua "bay video huong dan" (khong ton tai)
+    va "lo trinh 7 ngay" o gia $4.90 (thuc ra thuoc goi $19). Hua sai
+    => khach mua, khong nhan duoc, doi hoan tien 28 ngay.
+
+  ⚠ Trang ban co dong ho dem nguoc ~10 phut ("Your price is held").
+    Chua ro het gio thi gia co doi khong. KHONG viet cau kieu
+    "van la $4.90, khong bao gio het han" cho toi khi xac nhan.
+================================================================
