@@ -1,0 +1,181 @@
+================================================================
+LUONG BO GIO QUIZ $4.90  ·  BANG DUNG FLOW
+Muc tieu: nguoi da lam quiz, da bam mua GOI $4.90, vao toi trang
+          thanh toan Shopify roi bo do
+Lap 11/09/2026  ·  NOI DUNG 3 MAIL (BAN 2) DA DUYET 11/09/2026  ·  DA BAT LIVE 11/09/2026 ~3:08 PM
+Goi $19 la goi moi, KHONG nam trong luong
+
+Xem truoc 3 mail + ban dich tieng Viet:
+   mine-spirit-XEM-TRUOC-QUIZCHECKOUT.html
+   (dung lai bang: python klaviyo-quizcheckout-xem-truoc.py)
+================================================================
+
+
+1. TRIGGER
+================================================================
+
+  Metric:          Checkout Started
+  Trigger filter:  Items   contains   Your Full Spirit Map
+                   (chon tu danh sach goi y — DA DAT 11/09/2026)
+
+  VI SAO KHONG LOC THEO TEN GOI (kiem chung bang su kien that 11/09/2026):
+    Goi $4.90 la BUNDLE. Checkout Started ghi Items = 4 MON CON,
+    KHONG co ten goi "Your Full Reading — The Whole Set":
+       Your Full Spirit Map
+       Your Full Mental Wellbeing Report
+       The 3-Day Path
+       Your Guided Sessions
+    Goi $19 KHONG phai bundle — Items ghi dung 1 ten:
+       Map & Report + 5 Solutions — The Complete Reading
+    => "Your Full Spirit Map" chi xuat hien o gio $4.90. (The 3-Day Path
+       cung dung duoc.) Neu sau nay goi $19 doi thanh bundle co Spirit
+       Map thi phai xem lai bo loc nay.
+
+  Re-entry:  Allow re-entry after 30 days
+
+
+================================================================
+2. PROFILE FILTER
+================================================================
+
+  Placed Order   zero times   since starting this flow
+
+  ⚠ Chon "since starting this flow", KHONG chon "over all time".
+
+
+================================================================
+3. LICH GUI
+================================================================
+
+  #   DELAY TRUOC DO   NGAY THU   SMART SENDING
+  --  ---------------  ---------  -------------------------------
+  C1  1 gio            0,04       ⚠ TAT
+  C2  19 gio           0,8        giu
+  C3  2 ngay           2,8        giu
+
+  VI SAO C1 PHAI TAT SMART SENDING:
+    Khach nhan mail Q1 cua luong quiz -> bam vao -> vao checkout -> bo.
+    C1 roi vao trong vong 16 gio sau Q1 -> Smart Sending NUOT C1, khong
+    bao loi. Ma day chinh la luc khach nong nhat ca pheu.
+    C2 va C3 cach mail truoc tu 19 gio tro len nen giu nguyen.
+
+  ⚠ Sau khi go delay, doc lai chu hien tren o ("Wait 19 hours"),
+    dung tin so vua go.
+
+
+================================================================
+4. NOI DUNG
+================================================================
+
+  BAN 2 (11/09/2026) — viet lai theo NOI DAU. Ban 1 bi user che nhat:
+  toan thu tuc (chua tru tien / gio con luu / 7 mon / hoan tien), khong
+  khoi lai ly do khach MUON mua. Ban 2: moi mail mot noi dau, dung
+  CHINH LOI KHACH trong quiz that (so lieu tu bao cao pheu 04-07/09).
+  Chi goi lai cau hoi CO THAT tren minespirit.com (khong dung cau hoi
+  "lich tuan" — cau do chi co o ban pages.dev cu).
+
+  C1  QUIZCHECKOUT-C1.html
+      Subject:  It was never just tiredness 🕯️
+      Preview:  You saw the number. The reason is one tap away.
+      Noi dau:  Ho vua THAY tang yeu nhat + diem so. Khoa lai phan
+                "vi sao no can truoc" -> to mo. Khung "da thay / dang khoa".
+                Thu tuc (chua tru tien, khong lam lai quiz) xuong 1 dong.
+      ⚠ Dong "PayPal and Apple Pay work too" — XAC NHAN hai cach nay
+        dang bat o Shopify checkout truoc khi Live. Neu khong, xoa dong do.
+
+  C2  QUIZCHECKOUT-C2.html
+      Subject:  How long have you been calling it “just tired”? 🌙
+      Preview:  Your reading puts a name to it — tonight.
+      Noi dau:  Cai gia cua viec de no khong ten. The so 63% (Q21):
+                "Sometimes I feel empty and wonder what all this effort
+                is really for." Gia $4.90 dat canh "it hon so chi da chi
+                cho nguoi khac hom nay".
+
+  C3  QUIZCHECKOUT-C3.html
+      Subject:  When did you last spend $4.90 on just you? 🤍
+      Preview:  You carry a lot that nobody counts. This one is yours.
+      Noi dau:  Nguoi luon ganh cho nguoi khac. Goi lai cau hoi M-A cua
+                quiz that + 4 dap an chon nhieu nhat (43/28/27/24%) +
+                Q10 55%. Loi moi: "spend $4.90 on something only about
+                you". Ha rui ro gon lai 3 dong. KHONG dem nguoc.
+
+  Khong co ma giam gia (giam 35% cua $4.90 = $1,71).
+  Khong nhac goi $19 o bat ky dau.
+
+
+================================================================
+5. BIEN TRONG TEMPLATE
+================================================================
+
+  Dung lai bo bien DA KIEM CHUNG o luong Checkout cu (05/08/2026):
+     event.extra.checkout_url
+     {% for item in event.extra.line_items %}
+        item.title / item.price / item.quantity / item.product.images.0.src
+
+  ⚠ Tu 11/09/2026 C1 KHONG con vong lap: goi la bundle nen vong lap in ra
+    4 dong mon con. The san pham C1 dat cung (anh goi, ten goi, $4.90);
+    chi con link {{ event.extra.checkout_url }} la bien.
+
+  Gia viet la  ${{ item.price|floatformat:2 }}  de $4.90 khong in thanh $4.9
+  (cung ho voi loi {{ event.Quantity }} ra 1.0 da gap o luong ATC).
+
+  CHUA dung: ten tang yeu nhat ("Your focus") — chua co su kien that de
+  xem duong dan bien. Them sau lan mua thu.
+
+
+================================================================
+6. PHOI HOP VOI CAC LUONG KHAC
+================================================================
+
+  [x] Luong Checkout cu (trang suc) — Trigger filter:
+         Items  doesn't contain  Your Full Spirit Map
+      DA SUA 11/09/2026 (dong cu "doesn't contain Your Full Reading —
+      The Whole Set" khong co tac dung vi Items ghi mon con).
+
+  [x] Luong Checkout cu — dong thu hai (AND) cho goi $19:
+         Items  doesn't contain  Map & Report + 5 Solutions — The Complete Reading
+      DA LAM 11/09/2026. ⚠ Phai la AND — de OR thi bo loc vo dung
+      (lan dau user bam nham OR, da sua).
+      ⚠ Luong Checkout cu dang hien DRAFT (11/09/2026, 2:44 PM) — hoi lai
+        user vi sao; ghi chep cu noi luong nay Live tu 05/08.
+
+  [ ] Luong 6 mail quiz — Profile filter:
+         Checkout Started   zero times   since starting this flow
+      De ai vao toi checkout thi roi luong quiz, luong bo gio tiep quan.
+
+
+================================================================
+7. TEST TRUOC KHI BAT LIVE
+================================================================
+
+  Lam mot luot checkout thu bang EMAIL CA NHAN (khong dung hom support@):
+  lam quiz -> DOI SANG O $4.90 (o $19 dang duoc tick san) -> bam mua ->
+  vao trang thanh toan -> dong lai. Cho ~1 gio, roi kiem:
+
+  [x] Profile co su kien Checkout Started — CO (11/09/2026, 2:30 PM).
+      Email dien san la du, khach KHONG can bam "Continue" su kien van ban.
+  [x] Bung su kien, xem Items — ghi 4 MON CON, khong co ten goi
+      => da doi bo loc sang "Your Full Spirit Map" (xem muc 1).
+  [ ] Profile KHONG vao luong Checkout cu — chua kiem duoc (luong cu
+      dang Draft; bo loc AND da dat).
+  [x] Gui thu C1 (profile ca nhan) — OK 11/09/2026: 1 the san pham,
+      $4.90, anh hien, nut ve dung gio $4.90, footer + Unsubscribe du.
+  [x] Gui thu C2, C3 — OK 11/09/2026.
+  [ ] Apple Pay: mo mail thu tren iPhone, bam nut, xem co nut Apple Pay.
+      Khong co => doi dong C1 thanh "PayPal and Google Pay work too".
+
+
+================================================================
+8. BAT LIVE — HAI CONG TAC
+================================================================
+
+  [x] Tung email: Draft -> Live (ca 3)          — 11/09/2026
+  [x] Ca flow:    Draft -> Live                  — 11/09/2026 ~3:08 PM
+      Da kiem tren anh: delay 1h / 19h / 2 ngay, C1 khong co nhan
+      Smart sending, C2 + C3 co.
+  [ ] CON TON: dong "PayPal and Apple Pay work too" o C1 chua kiem
+      Apple Pay tren iPhone.
+
+  Email nao con Draft se bi BO QUA AM THAM.
+  Nho quota goi Free (500 luot/thang) dang chung voi 4 luong khac.
+================================================================
