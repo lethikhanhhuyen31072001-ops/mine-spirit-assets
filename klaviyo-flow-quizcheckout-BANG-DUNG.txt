@@ -176,5 +176,6 @@ Xem truoc 3 mail + ban dich tieng Viet:
   [x] Dong "PayPal and Apple Pay work too" o C1 — da kiem, giu nguyen.
 
   Email nao con Draft se bi BO QUA AM THAM.
-  Nho quota goi Free (500 luot/thang) dang chung voi 4 luong khac.
+  Goi Klaviyo (Billing 11/09/2026): 500 profile / 5.000 luot gui moi
+  thang, dung chung voi cac luong khac. Luc do dung 193 profile, 461 luot.
 ================================================================
