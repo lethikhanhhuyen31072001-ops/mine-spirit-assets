@@ -1,0 +1,117 @@
+═══════════════════════════════════════════════════════════════════════
+BẢNG DỰNG FLOW — ADD TO CART ABANDONMENT (Mine Spirit)
+Sinh từ 10 file trong klaviyo-templates/ ngày 06/08/2026
+Bảng nào trong chat khác bảng này thì tin bảng này.
+═══════════════════════════════════════════════════════════════════════
+
+CÀI ĐẶT CHUNG (đã làm xong)
+   Trigger .............. Added to Cart (Shopify)
+   Re-entry ............. Allow re-entry after 30 days
+   Profile filter ....... HAI dòng, nối bằng AND:
+                          Placed Order     — zero times — since starting this flow
+                          Checkout Started — zero times — in the last 30 days
+   Sender ............... Mine Spirit <support@minespirit.com>
+
+   Dòng thứ hai là điểm khác so với luồng Checkout: khách tiến vào
+   trang thanh toán sẽ rơi khỏi luồng ATC, để luồng Checkout tiếp quản.
+
+   ⚠ SỬA 14/09/2026: dòng Checkout Started trước là "since starting this
+   flow" — bị thủng khi khách vào checkout TRƯỚC rồi mới Added to Cart
+   (vd bấm Buy it now: hai sự kiện cùng phút, checkout đứng trước).
+   Khách đó chạy song song Checkout + ATC 18 ngày, nhận 2 bản cùng lúc
+   các mail tắt Smart Sending (M2, M3, M4, M7, M10) và 2 mã SPIRIT10.
+   "in the last 30 days" = bằng khoảng re-entry của luồng Checkout.
+   Đánh đổi: ai checkout trong 30 ngày (kể cả đã mua) thêm giỏ món mới
+   sẽ không nhận luồng ATC.
+
+───────────────────────────────────────────────────────────────────────
+20 KHỐI, KÉO THẢ THEO ĐÚNG THỨ TỰ
+───────────────────────────────────────────────────────────────────────
+
+KHỐI 1   ⏱  Time delay      1 giờ
+KHỐI 2   ✉  Email           ATC-M1        Smart Sending: GIỮ TICK
+         Subject   The one you picked ✨
+         Preview   Natural stone — that pattern exists exactly once
+         Mã        —        (ngày thứ 0.04)
+
+KHỐI 3   ⏱  Time delay      5 giờ
+KHỐI 4   ✉  Email           ATC-M2        Smart Sending: ☐ BỎ TICK
+         Subject   Three things people ask before buying 💭
+         Preview   Shipping time, real stone, and what if it is not right
+         Mã        —        (ngày thứ 0.25)
+
+KHỐI 5   ⏱  Time delay      2 giờ
+KHỐI 6   ✉  Email           ATC-M3        Smart Sending: ☐ BỎ TICK
+         Subject   It is okay to take your time 🌙
+         Preview   No rush. Here is 10% for when you are ready 🏷️
+         Mã        SPIRIT10        (ngày thứ 0.33)
+
+KHỐI 7   ⏱  Time delay      10 giờ
+KHỐI 8   ✉  Email           ATC-M4        Smart Sending: ☐ BỎ TICK
+         Subject   What it looks like to actually own one ☀️
+         Preview   Thirty seconds in the morning, before you touch your phone
+         Mã        SPIRIT10        (ngày thứ 0.75)
+
+KHỐI 9   ⏱  Time delay      2 ngày
+KHỐI 10  ✉  Email           ATC-M5        Smart Sending: GIỮ TICK
+         Subject   The thing you keep meaning to do ⏳
+         Preview   20% off, and it expires tomorrow 🏷️
+         Mã        SPIRIT20        (ngày thứ 2.75)
+
+KHỐI 11  ⏱  Time delay      13 NGÀY
+KHỐI 12  ✉  Email           ATC-M6        Smart Sending: GIỮ TICK
+         Subject   We work in small batches 🔮
+         Preview   Hand-picked, which means we do run out
+         Mã        —        (ngày thứ 15.75)
+
+KHỐI 13  ⏱  Time delay      2 giờ
+KHỐI 14  ✉  Email           ATC-M7        Smart Sending: ☐ BỎ TICK
+         Subject   One thing from this month's box 🎁
+         Preview   A look inside what ships on the 7th
+         Mã        —        (ngày thứ 15.83)
+
+KHỐI 15  ⏱  Time delay      1 ngày
+KHỐI 16  ✉  Email           ATC-M8        Smart Sending: GIỮ TICK
+         Subject   There is only one of it 💎
+         Preview   The banding on yours exists exactly once
+         Mã        SPIRIT35        (ngày thứ 16.83)
+
+KHỐI 17  ⏱  Time delay      1 ngày
+KHỐI 18  ✉  Email           ATC-M9        Smart Sending: GIỮ TICK
+         Subject   24 hours left ⏰
+         Preview   The largest code we send, ending tomorrow 🏷️
+         Mã        SPIRIT35        (ngày thứ 17.83)
+
+KHỐI 19  ⏱  Time delay      12 giờ
+KHỐI 20  ✉  Email           ATC-M10        Smart Sending: ☐ BỎ TICK
+         Subject   We will stop here 🤍
+         Preview   Last note from us about this one 👋
+         Mã        SPIRIT35        (ngày thứ 18.33)
+
+───────────────────────────────────────────────────────────────────────
+BẢNG ĐỐI CHIẾU — soát lại sau khi dựng xong
+───────────────────────────────────────────────────────────────────────
+Mail  Delay trước   Ngày thứ   Mã         SmartSending
+M1    1 giờ         0.04       —          giữ
+M2    5 giờ         0.25       —          BỎ
+M3    2 giờ         0.33       SPIRIT10   BỎ
+M4    10 giờ        0.75       SPIRIT10   BỎ
+M5    2 ngày        2.75       SPIRIT20   giữ
+M6    13 NGÀY       15.75      —          giữ
+M7    2 giờ         15.83      —          BỎ
+M8    1 ngày        16.83      SPIRIT35   giữ
+M9    1 ngày        17.83      SPIRIT35   giữ
+M10   12 giờ        18.33      SPIRIT35   BỎ
+
+Tổng thời gian luồng: ~18,3 ngày
+
+VÌ SAO BỎ TICK SMART SENDING Ở 5 MAIL ĐÓ
+   Smart Sending chặn gửi cho ai đã nhận mail trong 16 giờ trước.
+   M2, M3, M4, M7, M10 đều cách mail trước dưới 16 giờ
+   → không bỏ tick thì 5 mail này BỊ NUỐT, Klaviyo không báo lỗi gì.
+
+ĐẾM NGƯỢC MÃ SPIRIT35 (hạn 48 giờ, tính từ lúc gửi M8)
+   M8   giờ 0    còn 48h   →  mail viết "good for 48 hours"   ✓
+   M9   giờ 24   còn 24h   →  mail viết "24 hours left"       ✓
+   M10  giờ 36   còn 12h   →  mail viết "a few more hours"    ✓
+═══════════════════════════════════════════════════════════════════════
