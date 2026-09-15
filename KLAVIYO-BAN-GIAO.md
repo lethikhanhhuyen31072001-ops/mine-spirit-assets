@@ -34,7 +34,7 @@ Bật Live 06/08/2026, 11:23. 10 mail, trải 18 ngày, cấu trúc giống lu�
 Đã soát toàn bộ 20 khối trước khi bật: mọi delay đúng, khối 13 ngày đúng, và 5 mail cần tắt Smart Sending (M2, M3, M4, M7, M10) đều đã tắt. Đã gửi thử M1, M2, M9 về hộp thư thật — hiển thị đúng.
 
 Khác luồng Checkout ở ba chỗ:
-- Trigger `Added to Cart`, profile filter **hai dòng** (thêm `Checkout Started` = zero times **in the last 30 days**) để khách tiến vào thanh toán rơi khỏi luồng này. ⚠ Sửa 14/09/2026: trước là *since starting this flow* — thủng khi khách vào checkout trước rồi mới thêm giỏ (vd Buy it now), khách chạy song song hai luồng và nhận hai bản cùng lúc các mail tắt Smart Sending
+- Trigger `Added to Cart`, profile filter **hai dòng** (thêm `Checkout Started` = zero times **in the last 30 days**) để khách tiến vào thanh toán rơi khỏi luồng này. ⚠ Sửa 14/09/2026: trước là *since starting this flow* — thủng khi khách vào checkout trước rồi mới thêm giỏ (vd Buy it now), khách chạy song song hai luồng và nhận hai bản cùng lúc các mail tắt Smart Sending. Đã kiểm chứng 15/09/2026: profile bị trùng chỉ còn nhận mail của luồng Checkout
 - Nội dung M1, M2 viết riêng cho tệp ATC — họ **chưa quyết mua**, không phải chỉ vấp ở bước cuối như tệp Checkout
 - Mã giảm giá tung muộn hơn: M1, M2 không mã (luồng Checkout cũng vậy)
 

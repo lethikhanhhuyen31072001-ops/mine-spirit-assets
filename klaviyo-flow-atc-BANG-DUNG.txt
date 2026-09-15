@@ -23,6 +23,8 @@ CÀI ĐẶT CHUNG (đã làm xong)
    "in the last 30 days" = bằng khoảng re-entry của luồng Checkout.
    Đánh đổi: ai checkout trong 30 ngày (kể cả đã mua) thêm giỏ món mới
    sẽ không nhận luồng ATC.
+   ✓ ĐÃ KIỂM CHỨNG 15/09/2026: profile bị trùng chỉ còn nhận
+     CHECKOUT-M10 (1:56 AM), không có ATC-M10.
 
 ───────────────────────────────────────────────────────────────────────
 20 KHỐI, KÉO THẢ THEO ĐÚNG THỨ TỰ

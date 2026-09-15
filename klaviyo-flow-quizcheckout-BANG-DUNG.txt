@@ -3,7 +3,9 @@ LUONG BO GIO QUIZ $4.90  ·  BANG DUNG FLOW
 Muc tieu: nguoi da lam quiz, da bam mua GOI $4.90, vao toi trang
           thanh toan Shopify roi bo do
 Lap 11/09/2026  ·  NOI DUNG 3 MAIL (BAN 2) DA DUYET 11/09/2026  ·  DA BAT LIVE 11/09/2026 ~3:08 PM
-Goi $19 la goi moi, KHONG nam trong luong
+Tu 15/09/2026: MOT bo 3 mail cho CA goi $4.90 va goi $19 (user doi y
+vi hau het khach dang chon $19 — trang ban tick san goi $19). Khong tach
+nhanh: cong tac trong code tu dien dung ten goi + gia cho tung khach.
 
 Xem truoc 3 mail + ban dich tieng Viet:
    mine-spirit-XEM-TRUOC-QUIZCHECKOUT.html
@@ -16,7 +18,10 @@ Xem truoc 3 mail + ban dich tieng Viet:
 
   Metric:          Checkout Started
   Trigger filter:  Items   contains   Your Full Spirit Map
-                   (chon tu danh sach goi y — DA DAT 11/09/2026)
+                   OR
+                   Items   contains   Map & Report + 5 Solutions — The Complete Reading
+                   (dong 1 dat 11/09/2026; dong 2 — goi $19 — user them 14/09/2026.
+                    O day OR la DUNG: gio co goi nao thi vao luong.)
 
   VI SAO KHONG LOC THEO TEN GOI (kiem chung bang su kien that 11/09/2026):
     Goi $4.90 la BUNDLE. Checkout Started ghi Items = 4 MON CON,
@@ -92,7 +97,9 @@ Xem truoc 3 mail + ban dich tieng Viet:
                 cho nguoi khac hom nay".
 
   C3  QUIZCHECKOUT-C3.html
-      Subject:  When did you last spend $4.90 on just you? 🤍
+      Subject:  When did you last buy something just for you? 🤍
+                (doi 15/09/2026 — ban cu "spend $4.90" sai voi khach $19;
+                 tieu de KHONG dat cong tac: loi la hien chu la ngay hop thu)
       Preview:  You carry a lot that nobody counts. This one is yours.
       Noi dau:  Nguoi luon ganh cho nguoi khac. Goi lai cau hoi M-A cua
                 quiz that + 4 dap an chon nhieu nhat (43/28/27/24%) +
@@ -100,7 +107,7 @@ Xem truoc 3 mail + ban dich tieng Viet:
                 you". Ha rui ro gon lai 3 dong. KHONG dem nguoc.
 
   Khong co ma giam gia (giam 35% cua $4.90 = $1,71).
-  Khong nhac goi $19 o bat ky dau.
+  (Ban 11/09 "khong nhac goi $19" — da bo tu 15/09/2026, xem muc 5.)
 
 
 ================================================================
@@ -115,6 +122,21 @@ Xem truoc 3 mail + ban dich tieng Viet:
   ⚠ Tu 11/09/2026 C1 KHONG con vong lap: goi la bundle nen vong lap in ra
     4 dong mon con. The san pham C1 dat cung (anh goi, ten goi, $4.90);
     chi con link {{ event.extra.checkout_url }} la bien.
+
+  CONG TAC $4.90 / $19 (15/09/2026) — 8 cho trong 3 mail:
+     {% if 'Your Full Spirit Map' in event.Items %}  ...chu goi $4.90...
+     {% else %}                                      ...chu goi $19...
+     {% endif %}
+    - Do theo MON CON cua goi $4.90 (khong co "&", khong gach dai). KHONG
+      do theo ten goi $19: Import cua Klaviyo co the doi "&" -> "&amp;"
+      va lam hong cau lenh.
+    - Nhay DON trong cau lenh (nhay kep lot vao thuoc tinh HTML se vo).
+    - Moi cong tac nam TRONG mot <td> hoac trong chu — khong dat giua
+      cac <tr> (Import day ra ngoai bang).
+    - C1: the san pham (anh + ten + gia), gia o nut, dong "Your five
+      solutions 🔒" chi hien cho khach $19. C2: dong gia (hom nay / tuan
+      nay), gia o nut, ten gio. C3: cau chinh, dong hoan tien, gia o nut.
+    - Anh goi $19: Goi-2-Map-Report-5-Solutions-19.png (Shopify CDN).
 
   Gia viet la  ${{ item.price|floatformat:2 }}  de $4.90 khong in thanh $4.9
   (cung ho voi loi {{ event.Quantity }} ra 1.0 da gap o luong ATC).
@@ -161,6 +183,16 @@ Xem truoc 3 mail + ban dich tieng Viet:
   [x] Gui thu C1 (profile ca nhan) — OK 11/09/2026: 1 the san pham,
       $4.90, anh hien, nut ve dung gio $4.90, footer + Unsubscribe du.
   [x] Gui thu C2, C3 — OK 11/09/2026.
+  [x] (15/09) 2 luot bo gio that bang email test ca nhan cua Huyen
+      (hoi Huyen; email test dung hom 11/09 go sai — KHONG dung lai):
+      luot 1 goi $4.90 (checkout: 4 mon con, $4.90, email dien san),
+      luot 2 goi $19 (checkout: "Map & Report + 5 Solutions — The Complete
+      Reading", $19.00, email dien san). Khong nhap the, khong tra tien.
+      Trang ban van TICK SAN goi $19. Quiz khong luu phien: tai lai trang
+      la phai lam lai tu dau.
+  [ ] (15/09) Dan code moi C1, C2, C3 vao TUNG email trong flow + doi
+      subject C3. Gui thu ban $4.90 (profile co su kien $4.90) va ban $19
+      (profile co su kien $19): ten goi, anh, gia o 8 cho deu dung goi.
   [x] Apple Pay — CO, kiem tren iPhone 11/09/2026 (bam nut mail thu,
       checkout $4.90 dien san email, hien Apple Pay o ca Express va Payment).
 

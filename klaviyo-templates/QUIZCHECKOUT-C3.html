@@ -21,16 +21,16 @@
   <tr><td style="padding:22px 32px 0 32px;">
     <div style="font-size:16px;line-height:26px;color:#5A5470;">
       And 55 in every 100 agreed with this one: <em style="color:#2B2440;">&ldquo;Putting other people first often leaves very little strength for myself.&rdquo;</em><br><br>
-      So here is one small, unreasonable idea: <strong style="color:#2B2440;">spend $4.90 on something that is only about you.</strong> Not the house. Not the family. You.
+      So here is one small, unreasonable idea: <strong style="color:#2B2440;">spend {% if 'Your Full Spirit Map' in event.Items %}$4.90{% else %}$19{% endif %} on something that is only about you.</strong> Not the house. Not the family. You.
     </div></td></tr>
   <tr><td style="padding:22px 32px 0 32px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr>
       <td style="padding:16px 22px;border-left:3px solid #C6A15B;font-size:15px;line-height:23px;color:#5A5470;">
-        <div style="padding:4px 0;"><span style="color:#C6A15B;">&#10022;</span>&nbsp;&nbsp;Changed your mind? Reply within 28 days and <strong style="color:#2B2440;">we refund the $4.90</strong>. No form.</div>
+        <div style="padding:4px 0;"><span style="color:#C6A15B;">&#10022;</span>&nbsp;&nbsp;Changed your mind? Reply within 28 days and <strong style="color:#2B2440;">we refund the {% if 'Your Full Spirit Map' in event.Items %}$4.90{% else %}$19{% endif %}</strong>. No form.</div>
         <div style="padding:4px 0;"><span style="color:#C6A15B;">&#10022;</span>&nbsp;&nbsp;One payment. Nothing renews.</div>
         <div style="padding:4px 0;"><span style="color:#C6A15B;">&#10022;</span>&nbsp;&nbsp;Digital &mdash; nothing to ship, nothing to wait for.</div>
       </td></tr></table></td></tr>
-  <tr><td align="center" style="padding:26px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:16px 46px;font-size:16px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">This one is for me &mdash; $4.90</a></td></tr></table>
+  <tr><td align="center" style="padding:26px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:16px 46px;font-size:16px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">This one is for me &mdash; {% if 'Your Full Spirit Map' in event.Items %}$4.90{% else %}$19{% endif %}</a></td></tr></table>
     <div style="font-size:13px;line-height:20px;color:#8A849C;padding-top:14px;">Your cart and your answers are still saved.</div></td></tr>
   <tr><td style="padding:26px 32px 0 32px;">
     <div style="font-size:15px;line-height:25px;color:#5A5470;">If now is not the time, that is all right. This is the last note we will send about this cart.</div></td></tr>

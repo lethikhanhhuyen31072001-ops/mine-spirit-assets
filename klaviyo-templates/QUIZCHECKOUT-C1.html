@@ -22,18 +22,28 @@
           <tr><td style="padding:10px 0;font-size:15px;line-height:21px;color:#FFFFFF;font-weight:600;">The first thing to do about it, tonight</td>
               <td align="right" style="padding:10px 0;font-size:13px;color:#6E6488;white-space:nowrap;">&#128274; locked</td></tr>
         </table>
+        {% if 'Your Full Spirit Map' in event.Items %}{% else %}<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #2A1F47;"><tr><td style="padding:10px 0;font-size:15px;line-height:21px;color:#FFFFFF;font-weight:600;">Your five solutions, written for your map</td>
+              <td align="right" style="padding:10px 0;font-size:13px;color:#6E6488;white-space:nowrap;">&#128274; locked</td></tr></table>{% endif %}
         <div style="font-size:13px;line-height:20px;color:#9C93B5;padding-top:14px;">One tap opens all of it.</div>
       </td></tr></table></td></tr>
   <tr><td style="padding:20px 32px 0 32px;">
+    {% if 'Your Full Spirit Map' in event.Items %}
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr>
       <td width="110" valign="top" style="padding:16px 0 16px 16px;"><a href="{{ event.extra.checkout_url }}"><img src="https://cdn.shopify.com/s/files/1/0831/2481/4083/files/Goi-1-Map-Report-4.90.png?v=1788854302&amp;width=188" alt="Your Full Reading &mdash; The Whole Set" width="94" style="width:94px;border-radius:9px;display:block;border:0;"></a></td>
       <td valign="middle" style="padding:16px 18px 16px 14px;"><a href="{{ event.extra.checkout_url }}" style="text-decoration:none;">
         <div style="font-size:15px;line-height:22px;color:#2B2440;font-weight:600;">Your Full Reading &mdash; The Whole Set</div>
         <div style="font-size:14px;color:#5A5470;padding-top:5px;">$4.90 &middot; still in your cart</div></a></td></tr></table>
+    {% else %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F4FB;border-radius:10px;"><tr>
+      <td width="110" valign="top" style="padding:16px 0 16px 16px;"><a href="{{ event.extra.checkout_url }}"><img src="https://cdn.shopify.com/s/files/1/0831/2481/4083/files/Goi-2-Map-Report-5-Solutions-19.png?v=1788854305&amp;width=188" alt="Map &amp; Report + 5 Solutions &mdash; The Complete Reading" width="94" style="width:94px;border-radius:9px;display:block;border:0;"></a></td>
+      <td valign="middle" style="padding:16px 18px 16px 14px;"><a href="{{ event.extra.checkout_url }}" style="text-decoration:none;">
+        <div style="font-size:15px;line-height:22px;color:#2B2440;font-weight:600;">Map &amp; Report + 5 Solutions &mdash; The Complete Reading</div>
+        <div style="font-size:14px;color:#5A5470;padding-top:5px;">$19 &middot; still in your cart</div></a></td></tr></table>
+    {% endif %}
   </td></tr>
   <tr><td style="padding:12px 32px 0 32px;">
     <div style="font-size:15px;line-height:24px;color:#5A5470;"><strong style="color:#2B2440;">Nothing has been charged, and your answers are saved</strong> &mdash; you will not need to take the quiz again.</div></td></tr>
-  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:16px 46px;font-size:16px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">See why &mdash; $4.90</a></td></tr></table>
+  <tr><td align="center" style="padding:24px 32px 0 32px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#4A3B6B" style="border-radius:8px;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:16px 46px;font-size:16px;font-weight:600;color:#FFFFFF;text-decoration:none;letter-spacing:0.4px;">See why &mdash; {% if 'Your Full Spirit Map' in event.Items %}$4.90{% else %}$19{% endif %}</a></td></tr></table>
     <div style="font-size:13px;line-height:20px;color:#8A849C;padding-top:14px;">Your email is already filled in.</div>
     <div style="font-size:13px;line-height:20px;color:#8A849C;padding-top:4px;">Rather not type a card number? PayPal and Apple Pay work too.</div></td></tr>
   <tr><td style="padding:28px 32px 0 32px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #EFEAE2;border-bottom:1px solid #EFEAE2;"><tr>
